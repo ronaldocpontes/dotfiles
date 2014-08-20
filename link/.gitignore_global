@@ -32,11 +32,14 @@
 *.deb
 *.rpm
 
+
 # Logs and databases #
 ######################
 *.log
 *.sql
 *.sqlite
+
+
 
 # OS generated files #
 ######################
@@ -57,3 +60,26 @@ Desktop.ini
 
 # NPM
 .npmignore
+
+
+
+
+# Editors #
+###########
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/

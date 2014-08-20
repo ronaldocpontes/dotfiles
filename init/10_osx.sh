@@ -1,3 +1,9 @@
+# OSX #
+#######
+# Install Homebrew
+# Install Homebrew recipes
+
+
 # OSX-only stuff. Abort if not OSX.
 [[ "$OSTYPE" =~ ^darwin ]] || return 1
 

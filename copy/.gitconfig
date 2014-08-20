@@ -1,59 +1,125 @@
 [user]
-  name = Ben Alman
+  name = Ronaldo Pontes
   email = EMAIL
+
 [core]
   autocrlf = input
+  safecrlf = true
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
+
+[i18n]
+  logoutputencoding  = utf8
+  commitencoding = utf8
+
 [apply]
   whitespace = fix
-[alias]
-  br = branch
-  ci = commit
-  co = checkout
-  df = diff
-  g = grep -I
-  lg = log -p
-  pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
-  rb = rbranch
-  rv = review
-  st = status
-  ksdiff = difftool -y -t Kaleidoscope
+
 [branch "master"]
   remote = origin
   merge = refs/heads/master
+
+[merge]
+  log = true
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+
+[rerere]
+  enabled = 1
+
+[branch]
+	autosetuprebase  = always
+
+[alias]
+
+  a = add .
+  unadd = reset HEAD
+  b = branch -a
+  bn = checkout -b
+  bt = branch --track
+  br = branch
+  ck = checkout
+  c =  !git add -A && git commit -m
+  ca = !git add -A && git commit --amend -m
+  cp = !git add -p && git commit -m
+  co = commit -m
+  ckm = checkout master
+  clb = clone --bare
+  cla = remote add
+  d = diff --cached
+  f = fetch
+  g = grep -I
+  h =  log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  l =  log --pretty=format:\"%h | %s%d [%an]\" --graph -7
+  sh = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --stat --summary
+  hdiff = log -p --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  ha = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
+  histm = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short master --all
+  ksdiff = difftool -y -t Kaleidoscope
+  m = checkout master
+  p = pull
+  pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
+  r = reset
+  rr = !git reset --hard && git clean -f -d
+  resetToFactory = !git reset --hard && git clean -f -d -x
+  rh = reset HEAD
+  rv = revert HEAD --no-edit
+  rb = rbranch
+  rv = review
+  type = cat-file -t
+  dump = cat-file -p
+  s = status
+
+
+  # Other stuff...
+  prepare = !git remote rename origin upstream && git branch merge-upstream && git branch dev && git checkout dev && git remote && git branch
+  setup = !git branch --track merged bt/merged && git branch --track dev bt/dev
+  rbdbreset = !rake db:drop db:create db:migrate db:seed
+  hforce = push heroku rad:master
+  hdevr = !git commit --allow-empty -m "empty commit" && git push heroku +dev:master && git reset head~
+  hcar  = !git commit --allow-empty -m "empty commit" && git push heroku +merge-upstream:master && git reset head~
+
+
+
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+  insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+
+[url "git@heroku.com:"]
+  insteadOf = "heroku:"
+
+
+
+
 [color]
   ui = auto
+
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
   old = red bold
   new = green bold
+
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
-[merge]
-  log = true
-[difftool "Kaleidoscope"]
-  cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[rerere]
-  enabled = 1
-[url "git@github.com:"]
-  insteadOf = "gh:"
-  pushInsteadOf = "github:"
-  pushInsteadOf = "git://github.com/"
-[url "git://github.com/"]
-  insteadOf = "github:"
-[url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
-  insteadOf = "gist:"
-[url "git@heroku.com:"]
-  insteadOf = "heroku:"

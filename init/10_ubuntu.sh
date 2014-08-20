@@ -1,3 +1,11 @@
+# UBUNTU #
+###########
+# Install sudoers file
+# Update APT
+# Install APT packages
+# Install Git Extras
+
+
 # Ubuntu-only stuff. Abort if not Ubuntu.
 [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
 
