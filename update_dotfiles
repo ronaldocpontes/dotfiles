@@ -1,0 +1,15 @@
+echo
+echo "#####  Copying content to ~/.dotfiles... "
+echo "######################################## "
+echo
+    mkdir ~/.dotfiles
+    rsync -avh . ~/.dotfiles --exclude='.idea' --exclude='.git'
+    rsync -ah . ~/.dotfiles --exclude='.idea'
+
+
+
+echo
+echo "#####  Executing scripts... "
+echo "################################################ "
+echo
+    source ~/.bashrc

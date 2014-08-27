@@ -1,3 +1,8 @@
+############
+#  For extra Github commands chek:
+#  https://hub.github.com/
+##################################ß
+
 [user]
   name = Ronaldo Pontes
   email = EMAIL
@@ -47,11 +52,12 @@
   ckm = checkout master
   clb = clone --bare
   cla = remote add
-  d = diff --cached
+  d = diff --cached --word-diff
   f = fetch
   g = grep -I
-  h =  log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  l =  log --pretty=format:\"%h | %s%d [%an]\" --graph -7
+  h =  log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --simplify-merges
+  hs =  !git h --simplify-by-decoration
+  l =  log --pretty=format:\"%h | %s%d [%an]\" --graph -7 --simplify-merges
   sh = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --stat --summary
   hdiff = log -p --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   ha = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
@@ -68,8 +74,17 @@
   rb = rbranch
   rv = review
   type = cat-file -t
+  track = checkout -t
+  locate-message = show :/
+  locate-hash = name-rev --name-only
+  contains-hash = branch --contains
   dump = cat-file -p
-  s = status
+  s = status -sb
+
+  # http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree
+  sta    = "!f() { git remote add -f $2 && git subtree add  --prefix $1 $2 master --squash; }; f"
+  stpull = "!f() { git fetch $1 master  && git subtree pull --prefix $1 $1 master --squash; }; f"
+  stpush = "!f() {                         git subtree push --prefix $1 $1 master --squash; }; f"
 
 
   # Other stuff...

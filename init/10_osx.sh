@@ -22,8 +22,8 @@ fi
 
 if [[ "$(type -P brew)" ]]; then
   e_header "Updating Homebrew"
-  brew doctor
-  brew update
+  #brew doctor
+  #brew update
 
   # Install Homebrew recipes.
   recipes=(
