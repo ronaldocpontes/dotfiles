@@ -8,7 +8,7 @@
 
 [core]
   autocrlf = input
-  safecrlf = true
+  safecrlf = false
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
 
@@ -67,6 +67,7 @@
   ksdiff = difftool -y -t Kaleidoscope
   m = checkout master
   p = pull
+  pub = push --set-upstream origin
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
   r = reset
   rr = !git reset --hard && git clean -f -d
