@@ -55,7 +55,7 @@
   clb = clone --bare
   cla = remote add
   d = diff --cached --word-diff
-  f = fetch
+  f = fetch                                                      g
   g = grep -I
   h =  log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --simplify-merges
   hs =  !git h --simplify-by-decoration
