@@ -9,7 +9,7 @@
 [core]
   autocrlf = input
   safecrlf = false
-  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+#  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
 
 [i18n]
@@ -28,6 +28,7 @@
 
 [merge]
   log = true
+	tool = meld
 
 [difftool "Kaleidoscope"]
   cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
