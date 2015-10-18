@@ -65,4 +65,3 @@ if [[ "$(type -P gem)" ]]; then
     rbenv rehash
   fi
 fi
-
