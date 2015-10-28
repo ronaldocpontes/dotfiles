@@ -11,6 +11,7 @@
   safecrlf = false
 #  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
+	editor = atom --wait
 
 [i18n]
   logoutputencoding  = utf8

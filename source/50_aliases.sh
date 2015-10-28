@@ -1,8 +1,8 @@
-
 # General Aliases
 
 # HTTP Web Server
 alias ws='python -m SimpleHTTPServer'
+echo " alias   : ws - python -m SimpleHTTPServer"
 
 # Directory listing
 if [[ "$(type -P tree)" ]]; then
