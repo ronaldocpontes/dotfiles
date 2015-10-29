@@ -1,3 +1,4 @@
+ls
 # OSX #
 #######
 # Install Homebrew
