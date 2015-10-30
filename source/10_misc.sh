@@ -69,20 +69,9 @@ fi
 # =============================================
 # Editor Settings
 # =============================================
-if [[ ! "$SSH_TTY" && "$OSTYPE" =~ ^darwin ]]; then
-  export EDITOR='atom -w'
-  export LESSEDIT='atom %f'
-  alias e='atom'
-else
-  export EDITOR=$(type nano pico vi vim 2>/dev/null | sed 's/ .*$//;e')
-  alias e="$EDITOR -w -z"
-fi
-
+export EDITOR='atom -w'
 export VISUAL="$EDITOR"
+export LESSEDIT='atom %f'
+alias e='atom'
 
-alias e.='e .'
-
-function es() {
-  pwd | perl -ne"s#^$(echo ~/.dotfiles)## && exit 1" && cd ~/.dotfiles
-  e ~/.dotfiles
-}
+alias es='atom ~/'
