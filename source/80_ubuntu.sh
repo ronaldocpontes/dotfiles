@@ -1,6 +1,8 @@
 # Ubuntu-only stuff. Abort if not Ubuntu.
 [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
 
+#export NODE_PATH=$NODE_PATH:/usr/lib/node_modules 
+
 # Package management
 alias update="sudo apt-get -qq update && sudo apt-get upgrade"
 alias install="sudo apt-get install"

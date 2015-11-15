@@ -1,0 +1,14 @@
+# see: http://askubuntu.com/questions/145443/how-do-i-use-pm-suspend-hybrid-by-default-instead-of-pm-suspend
+#
+# WORKAROUND: always set the default hibernate mode first (normal mode)
+# (not required if you have the patch mentioned by Rohan below (http://askubuntu.com/a/344879/169))
+HIBERNATE_MODE=platform
+
+# Always use hibernate instead of suspend, but with "suspend to both"
+if [ "$METHOD" = "suspend" ]; then
+  METHOD=hibernate
+  HIBERNATE_MODE=suspend
+fi
+
+# Make sure to use the kernel's method, in case uswsusp is installed etc.
+SLEEP_MODULE=kernel

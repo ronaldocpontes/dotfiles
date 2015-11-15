@@ -50,6 +50,7 @@ packages=(
   tree sl id3tool cowsay
   nmap telnet
   htop
+  hibernate
 )
 
 list=()
