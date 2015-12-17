@@ -15,6 +15,11 @@ function titlebar() {
   echo -n $'\e]0;'"$*"$'\a'
 }
 
+# Kill the process hooked to a port
+function killport() {
+  lsof -t -i tcp:$1 | xargs kill
+}
+
 # SSH auto-completion based on entries in known_hosts.
 if [[ -e ~/.ssh/known_hosts ]]; then
   complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp sftp
