@@ -12,6 +12,8 @@
 #  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
 	editor = atom --wait
+	# Do not show vim style editor if log content fits in a page
+	pager = less -F -X
 
 [i18n]
   logoutputencoding  = utf8
@@ -57,12 +59,13 @@
   clb = clone --bare
   cla = remote add
   d = diff --cached --word-diff
-  f = fetch                                                      g
+  f = fetch
   g = grep -I
   h =  log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --simplify-merges
   hs =  !git h --simplify-by-decoration
   l =  log --pretty=format:\"%h | %s%d [%an]\" --graph -7 --simplify-merges
-  sh = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --stat --summary
+  lc = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --stat --summary HEAD^..HEAD -F
+  la = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --stat --summary
   hdiff = log -p --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   ha = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --all
   histm = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short master --all
