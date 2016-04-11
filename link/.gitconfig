@@ -7,8 +7,9 @@
      path = .gitconfig.private
 
 [core]
-  autocrlf = input
+  autocrlf = false
   safecrlf = false
+  eol = LF
 #  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
   excludesfile = ~/.gitignore_global
 	editor = atom --wait
@@ -148,6 +149,7 @@
   untracked = cyan
 [diff]
 	tool = diffmerge
+	renamelimit = 5000
 [difftool "diffmerge"]
 	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffmerge"]
