@@ -73,8 +73,10 @@
   ksdiff = difftool -y -t Kaleidoscope
   m = checkout master
   p = pull
+  pm = push origin master
   pub = push --set-upstream origin
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
+  repo = remote get-url origin
   r = reset
   rr = !git reset --hard && git clean -f -d
   resetToFactory = !git reset --hard && git clean -f -d -x
