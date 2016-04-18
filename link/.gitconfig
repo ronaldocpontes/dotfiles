@@ -72,11 +72,10 @@
   histm = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short master --all
   ksdiff = difftool -y -t Kaleidoscope
   m = checkout master
-  p = pull
-  pm = push origin master
+  p = push origin master
   pub = push --set-upstream origin
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
-  repo = remote get-url origin
+  repo = remote show origin
   r = reset
   rr = !git reset --hard && git clean -f -d
   resetToFactory = !git reset --hard && git clean -f -d -x
@@ -106,8 +105,16 @@
   hdevr = !git commit --allow-empty -m "empty commit" && git push heroku +dev:master && git reset head~
   hcar  = !git commit --allow-empty -m "empty commit" && git push heroku +merge-upstream:master && git reset head~
 
+  # Docker
+  dcd = !docker-compose down
+  dck = !docker-compose kill
+  dcu = !docker-compose up
+  dp = !docker ps -a
+  drma = !docker rm $(docker ps -a -q)
+  drmia = !docker rmi $(docker images -q)
 
-
+  # user
+  confgsc = !git config user.name "gsc-dev" && git config user.email "dev@globalsphereconsulting.com"
 
 [url "git@github.com:"]
   insteadOf = "gh:"
