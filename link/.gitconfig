@@ -7,7 +7,7 @@
      path = .gitconfig.private
 
 [core]
-  autocrlf = false
+  autocrlf = input
   safecrlf = false
   eol = LF
 #  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
@@ -40,7 +40,7 @@
 [rerere]
   enabled = 1
 
-[branch]
+[branch]t
 	autosetuprebase  = always
 
 [alias]
@@ -90,6 +90,7 @@
   contains-hash = branch --contains
   dump = cat-file -p
   s = status -sb
+  addgsc = remote add gsc git@gsc:
 
   # http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree
   sta    = "!f() { git remote add -f $2 && git subtree add  --prefix $1 $2 master --squash; }; f"
@@ -112,6 +113,9 @@
   dp = !docker ps -a
   drma = !docker rm $(docker ps -a -q)
   drmia = !docker rmi $(docker images -q)
+
+  sub = submodule
+  su = submodule update
 
   # user
   confgsc = !git config user.name "gsc-dev" && git config user.email "dev@globalsphereconsulting.com"
