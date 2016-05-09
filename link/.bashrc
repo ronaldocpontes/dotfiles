@@ -9,6 +9,9 @@ export PATH
 if [[ -e $settings_file ]]; then
     echo "Load settings file at $settings_file"
     source "$settings_file"
+else
+	echo "No settings file at $settings_file"
+	exit
 fi
 
 
