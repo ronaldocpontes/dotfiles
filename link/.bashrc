@@ -71,7 +71,26 @@ function dotfiles() {
   ~/.dotfiles/bin/dotfiles "$@" && src
 }
 
+function addSSHKeys() {
+  local file
+
+  echo "Adding SSH keys"
+
+  for file in ~/.ssh/*.private; do
+    if [[ ! -d $file ]]; then
+        #echo "- $file ..."
+         ssh-add "$file"
+    fi
+  done
+  ssh-add -l
+}
+
+
 src
 save_config
+addSSHKeys
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Added by the Bluemix CLI
+source /usr/local/Bluemix/bx/bash_autocomplete
