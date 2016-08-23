@@ -7,3 +7,5 @@ export PATH
 
 # Make 'less' more.
 eval "$(lesspipe.sh)"
+
+alias emacs="/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs -nw"
