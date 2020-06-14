@@ -7,11 +7,11 @@
      path = .gitconfig.private
 
 [core]
-  autocrlf = input
-  safecrlf = false
-  eol = LF
+	autocrlf = input
+	safecrlf = warn
+	eol = native
 #  whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/ronaldopontes/.gitignore_global
 	editor = atom --wait
 	# Do not show vim style editor if log content fits in a page
 	pager = less -F -X
@@ -77,7 +77,7 @@
   pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
   repo = remote show origin
   r = reset
-  rr = !git reset --hard && git clean -f -d
+  rr = !git reset --hard && git clean -f -d && git submodule update -f --init
   resetToFactory = !git reset --hard && git clean -f -d -x
   rh = reset HEAD
   rv = revert HEAD --no-edit
@@ -114,8 +114,8 @@
   drma = !docker rm $(docker ps -a -q)
   drmia = !docker rmi $(docker images -q)
 
-  sub = submodule
-  su = submodule update
+  subi = submodule update --init --recursive
+  sub = pull --recurse-submodules
 
   # user
   confgsc = !git config user.name "gsc-dev" && git config user.email "dev@globalsphereconsulting.com"
@@ -163,8 +163,20 @@
 [diff]
 	tool = diffmerge
 	renamelimit = 5000
+	noprefix = true
 [difftool "diffmerge"]
 	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffmerge"]
 	trustExitCode = true
 	cmd = /usr/bin/diffmerge --merge --result=\"$MERGED\"  \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[user]
+	email = ronaldocpontes@gmail.com
+	name = Ronaldo Pontes
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/ronaldopontes/.stCommitMsg

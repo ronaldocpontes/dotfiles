@@ -23,14 +23,16 @@ fi
 
 if [[ "$(type -P brew)" ]]; then
   e_header "Updating Homebrew"
-  #brew doctor
-  #brew update
+  brew tap caskroom/versions
+  brew doctor
+  brew update
 
   # Install Homebrew recipes.
   recipes=(
     bash
+    brew-cask-completion
     ssh-copy-id
-    git git-extras hub
+    git git-extras hub git-subrepo
     tree sl id3tool cowsay
     lesspipe nmap
     htop-osx man2html
@@ -63,9 +65,15 @@ if [[ "$(type -P brew)" ]]; then
     e_arrow "Please exit and restart all your shells."
   fi
 
-  # i don't remember why i needed this?!
-  if [[ ! "$(type -P gcc-4.2)" ]]; then
-    e_header "Installing Homebrew dupe recipe: apple-gcc42"
-    brew install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
-  fi
+  # Microsoft Fonts (hack needs to instal full MS-Office)
+  # brew cask install microsoft-office
+  # mkdir ~/Library/Fonts/Microsoft
+  # cp -av /Applications/Microsoft\ Word.app/Contents/Resources/Fonts/* ~/Library/Fonts/Microsoft/
+
+  brew tap colindean/fonts-nonfree
+  brew cask install font-microsoft-office
+
+  # Clean Homebrew temp folders
+  brew cleanup
+
 fi

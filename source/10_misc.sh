@@ -10,16 +10,6 @@ export GREP_OPTIONS='--color=auto'
 # Prevent less from clearing the screen while still showing colors.
 export LESS=-XR
 
-# Set the terminal's title bar.
-function titlebar() {
-  echo -n $'\e]0;'"$*"$'\a'
-}
-
-# Kill the process hooked to a port
-function killport() {
-  lsof -t -i tcp:$1 | xargs kill
-}
-
 # SSH auto-completion based on entries in known_hosts.
 if [[ -e ~/.ssh/known_hosts ]]; then
   complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp sftp
@@ -43,10 +33,6 @@ export HISTTIMEFORMAT="[%F %T] "
 # Lots o' history.
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-
-# Easily re-execute the last history command.
-alias r="fc -s"
-
 
 # =============================================
 # ls and files
@@ -74,9 +60,6 @@ fi
 # =============================================
 # Editor Settings
 # =============================================
-export EDITOR='atom -w'
+export EDITOR='code -w'
 export VISUAL="$EDITOR"
-export LESSEDIT='atom %f'
-alias e='atom'
-
-alias es='atom ~/'
+export LESSEDIT='code %f'
